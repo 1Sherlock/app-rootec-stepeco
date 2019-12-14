@@ -19,6 +19,12 @@ namespace Stepeco.Core.Helpers
             CreateMap<EnvironmentRecord, EnvironmentRecordViewModel>();
             CreateMap<EnvironmentRecordViewModel, EnvironmentRecord>();
             CreateMap<EnvironmentRecordPostModel, EnvironmentRecord>();
+
+            CreateMap<Recommendation, RecommendationViewModel>();
+            CreateMap<Recommendation, RecommendationModel>();
+            CreateMap<RecommendationEditModel, Recommendation>();
+            CreateMap<RecommendationViewModel, Recommendation>();
+            CreateMap<RecommendationModel, Recommendation>();
         }
     }
 }

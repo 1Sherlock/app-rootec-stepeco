@@ -47,6 +47,7 @@ namespace Stepeco
 
             services.AddTransient<IEnvironmentRecordEntityService, EnvironmentRecordEntityService>();
             services.AddTransient<IStepEntityService, StepEntityService>();
+            services.AddTransient<IRecommendationEntityService, RecommendationEntityService>();
 
             services.AddSwaggerGen(c =>
             {

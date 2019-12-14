@@ -13,7 +13,7 @@ namespace Stepeco.Core.DAL
 
         public DbSet<EnvironmentRecord> EnvironmentRecords { get; set; }
         public DbSet<Step> Steps { get; set; }
-
+        public DbSet<Recommendation> Recommendations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -21,6 +21,7 @@ namespace Stepeco.Core.DAL
 
             builder.ApplyConfiguration(new EnvironmentRecordMap());
             builder.ApplyConfiguration(new StepMap());
+            builder.ApplyConfiguration(new RecommendationMap());
         }
     }
 }
