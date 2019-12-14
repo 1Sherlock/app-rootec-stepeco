@@ -22,6 +22,7 @@ namespace Stepeco.Core.Helpers
 
             CreateMap<Recommendation, RecommendationViewModel>();
             CreateMap<Recommendation, RecommendationModel>();
+            CreateMap<RecommendationPostModel, Recommendation>();
             CreateMap<RecommendationEditModel, Recommendation>();
             CreateMap<RecommendationViewModel, Recommendation>();
             CreateMap<RecommendationModel, Recommendation>();
