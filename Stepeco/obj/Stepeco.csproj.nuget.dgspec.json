@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Main\\projects\\ODC\\Stepeco\\Stepeco.csproj": {}
+    "C:\\Main\\projects\\ODC\\GitHubStepeco\\app-rootec-stepeco\\Stepeco\\Stepeco.csproj": {}
   },
   "projects": {
-    "C:\\Main\\projects\\ODC\\Stepeco\\Stepeco.csproj": {
+    "C:\\Main\\projects\\ODC\\GitHubStepeco\\app-rootec-stepeco\\Stepeco\\Stepeco.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Main\\projects\\ODC\\Stepeco\\Stepeco.csproj",
+        "projectUniqueName": "C:\\Main\\projects\\ODC\\GitHubStepeco\\app-rootec-stepeco\\Stepeco\\Stepeco.csproj",
         "projectName": "Stepeco",
-        "projectPath": "C:\\Main\\projects\\ODC\\Stepeco\\Stepeco.csproj",
+        "projectPath": "C:\\Main\\projects\\ODC\\GitHubStepeco\\app-rootec-stepeco\\Stepeco\\Stepeco.csproj",
         "packagesPath": "C:\\Users\\Cruiser\\.nuget\\packages\\",
-        "outputPath": "C:\\Main\\projects\\ODC\\Stepeco\\obj\\",
+        "outputPath": "C:\\Main\\projects\\ODC\\GitHubStepeco\\app-rootec-stepeco\\Stepeco\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
