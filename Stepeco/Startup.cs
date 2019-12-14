@@ -11,7 +11,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Stepeco.Core.BLL.Base;
+using Stepeco.Core.BLL.Interfaces;
+using Stepeco.Core.BLL.Services;
 using Stepeco.Core.DAL;
+using Stepeco.Core.DAL.Repository.Interface;
 
 namespace Stepeco
 {
@@ -30,6 +34,13 @@ namespace Stepeco
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MSSQLServerConnection")));
+
+            services.AddSingleton(Configuration);
+            services.AddScoped(typeof(IEntityRepository<>), typeof(EntityRepository<>));
+            services.AddScoped(typeof(IEntityService<>), typeof(EntityService<>));
+
+            services.AddTransient<IEnvironmentRecordEntityService, EnvironmentRecordEntityService>();
+            services.AddTransient<IStepEntityService, StepEntityService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
