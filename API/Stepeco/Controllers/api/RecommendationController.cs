@@ -76,9 +76,9 @@ namespace Stepeco.Controllers.api
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         [ProducesResponseType(typeof(RecommendationModel), 200)]
-        public async Task<IActionResult> Post([FromBody]RecommendationEditModel model)
+        public async Task<IActionResult> Put([FromBody]RecommendationEditModel model)
         {
             if (model.Keyword != _configuration["Settings:Keyword"])
             {
@@ -88,6 +88,9 @@ namespace Stepeco.Controllers.api
             try
             {
                 var entity = await _entityService.AllAsQueryable.FirstOrDefaultAsync(p => p.Id == model.Id);
+                if (entity == null)
+                    return NotFound();
+
                 entity.Description = model.Description;
                 entity.Minimum = model.Minimum;
                 entity.Maximum = model.Maximum;
@@ -97,6 +100,30 @@ namespace Stepeco.Controllers.api
                 _entityService.Save();
                 var result = _mapper.Map<Recommendation, RecommendationModel>(entity);
                 return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody]RecommendationDeleteModel model)
+        {
+            if (model.Keyword != _configuration["Settings:Keyword"])
+            {
+                return BadRequest("Wrong keyword");
+            }
+
+            try
+            {
+                var entity = await _entityService.AllAsQueryable.FirstOrDefaultAsync(p => p.Id == model.Id);
+                if (entity == null)
+                    return NotFound();
+
+                _entityService.Delete(entity.Id, false);
+                _entityService.Save();
+                return Ok();
             }
             catch (Exception e)
             {
