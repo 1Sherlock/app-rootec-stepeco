@@ -10,9 +10,9 @@ namespace Stepeco.Controllers.api
     {
         private static readonly List<EnvironmentRecord> Records = new List<EnvironmentRecord>
         {
-            new EnvironmentRecord { Id = 1, Temperature = 10, LocationX = 41, LocationY = 69 },
-            new EnvironmentRecord { Id = 2, Temperature = 20, LocationX = 41, LocationY = 69 },
-            new EnvironmentRecord { Id = 3, Temperature = 30, LocationX = 41, LocationY = 69 }
+            new EnvironmentRecord { Id = 1, Temperature = 10, Latitude = 41, Longitude = 69 },
+            new EnvironmentRecord { Id = 2, Temperature = 20, Latitude = 41, Longitude = 69 },
+            new EnvironmentRecord { Id = 3, Temperature = 30, Latitude = 41, Longitude = 69 }
         };
 
         [HttpGet]
