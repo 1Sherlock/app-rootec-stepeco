@@ -1,29 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Stepeco.Controllers.DAL.Entities;
+using Stepeco.Core.DAL.Entities;
 
 namespace Stepeco.Controllers.api
 {
     [Route("api/[controller]/[action]")]
     public class ExampleController : Controller
     {
-        private static readonly List<Region> Regions = new List<Region>
+        private static readonly List<EnvironmentRecord> Records = new List<EnvironmentRecord>
         {
-            new Region { Id = 1, Temperature = 10, LocationX = 41, LocationY = 69 },
-            new Region { Id = 2, Temperature = 20, LocationX = 41, LocationY = 69 },
-            new Region { Id = 3, Temperature = 30, LocationX = 41, LocationY = 69 }
+            new EnvironmentRecord { Id = 1, Temperature = 10, LocationX = 41, LocationY = 69 },
+            new EnvironmentRecord { Id = 2, Temperature = 20, LocationX = 41, LocationY = 69 },
+            new EnvironmentRecord { Id = 3, Temperature = 30, LocationX = 41, LocationY = 69 }
         };
+
         [HttpGet]
-        public IEnumerable<Region> GetRegions()
+        public IEnumerable<EnvironmentRecord> GetAll()
         {
-            return Regions.ToArray();
+            return Records.ToArray();
         }
 
         [HttpPost]
-        public ActionResult CreateRegion([FromBody] Region region)
+        public ActionResult Post([FromBody] EnvironmentRecord region)
         {
-            Regions.Add(region);
+            Records.Add(region);
             return Ok(region);
         }
     }
