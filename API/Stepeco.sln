@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stepeco", "Stepeco.csproj", "{C6159628-4C5F-40C9-A217-ED1E6F579832}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stepeco", "Stepeco\Stepeco.csproj", "{7AE6FDF7-79A4-4E61-8399-41EC39F938F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C6159628-4C5F-40C9-A217-ED1E6F579832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6159628-4C5F-40C9-A217-ED1E6F579832}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6159628-4C5F-40C9-A217-ED1E6F579832}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6159628-4C5F-40C9-A217-ED1E6F579832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE6FDF7-79A4-4E61-8399-41EC39F938F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE6FDF7-79A4-4E61-8399-41EC39F938F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE6FDF7-79A4-4E61-8399-41EC39F938F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE6FDF7-79A4-4E61-8399-41EC39F938F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3A32F5DD-A752-44AB-AE2D-C0F232207D81}
+		SolutionGuid = {583C5E35-37F9-44CA-908D-FAF9FEBB45CB}
 	EndGlobalSection
 EndGlobal
