@@ -18,9 +18,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/navigation" />
 
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/main_coordinator_layout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,9 +31,11 @@
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/main_bottom_app_bar"
+            android:elevation="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:backgroundTint="#fcfcfc"
             app:contentInsetStart="0dp"
             app:fabAlignmentMode="center"
             app:fabCradleMargin="10dp"
@@ -45,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/transparent_background"
-                android:elevation="20dp"
+
                 app:labelVisibilityMode="labeled"
                 app:menu="@menu/bottom_menu" />
 
@@ -57,7 +60,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/play"
             android:tint="@color/colorPrimary"
-            app:backgroundTint="#fff"
+            app:backgroundTint="#fcfcfc"
             app:borderWidth="0dp"
             app:fabSize="normal"
             app:layout_anchor="@id/main_bottom_app_bar">
