@@ -52,6 +52,13 @@ namespace Stepeco.Controllers.api
             try
             {
                 var entity = _mapper.Map<EnvironmentRecord>(model);
+                #region Temporary code
+                Random random = new Random();
+                var rLatitudeD = random.NextDouble();
+                var rLongitudeD = random.NextDouble();
+                entity.Longitude = 69 + rLongitudeD;
+                entity.Latitude = 41 + rLatitudeD;
+                #endregion
                 entity.CreatedDate = DateTime.Now;
                 entity = _entityService.Create(entity, false);
                 _entityService.Save();
