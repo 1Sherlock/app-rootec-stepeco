@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Stepeco.Core.BLL.Interfaces;
 using Stepeco.Core.DAL.Entities;
 using Stepeco.Models;
@@ -58,6 +62,52 @@ namespace Stepeco.Controllers.api
             {
                 return BadRequest(e.Message);
             }
+        }
+
+        [HttpGet("AsJson")]
+        public IActionResult DownloadAsJson()
+        {
+            var models = _mapper.Map<IEnumerable<Step>, List<StepViewModel>>(_entityService.All);
+            var json = JsonConvert.SerializeObject(models);
+            byte[] byteArray = Encoding.UTF8.GetBytes(json);
+            MemoryStream stream = new MemoryStream(byteArray);
+            return File(stream, "application/json", "Steps.json");
+        }
+
+        [HttpGet("AsCSV")]
+        public IActionResult DownloadAsCSV()
+        {
+            var models = _mapper.Map<IEnumerable<Step>, List<StepViewModel>>(_entityService.All);
+            StringBuilder result = new StringBuilder();
+            result.AppendLine("Latitude;Longitude;DateTime");
+            foreach (var item in models)
+            {
+                result.AppendLine(String.Format("{0};{1};{2};", item.Latitude, item.Longitude, item.CreatedDate));
+            }
+            // convert string to stream
+            byte[] byteArray = Encoding.UTF8.GetBytes(result.ToString());
+            MemoryStream stream = new MemoryStream(byteArray);
+            return File(stream, "application/vnd.ms-excel", "Steps.csv");
+        }
+
+        [HttpGet("AsXML")]
+        public IActionResult DownloadAsXML()
+        {
+            var models = _mapper.Map<IEnumerable<Step>, List<StepViewModel>>(_entityService.All);
+            string result;
+            using (var stream = new MemoryStream())
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    var serializer = new XmlSerializer(models.GetType());
+                    serializer.Serialize(stream, models);
+                    stream.Position = 0;
+                    result = reader.ReadToEnd();
+                }
+            }
+            byte[] byteArray = Encoding.UTF8.GetBytes(result);
+            MemoryStream resultStream = new MemoryStream(byteArray);
+            return File(resultStream, "application/xml", "Steps.xml");
         }
     }
 }
