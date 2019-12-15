@@ -40,6 +40,17 @@ namespace Stepeco.Controllers.api
             return Ok(models);
         }
 
+        [HttpGet("{page}")]
+        [ProducesResponseType(typeof(ICollection<StepViewModel>), 200)]
+        public IActionResult Get(int? page)
+        {
+            int iPage = page ?? 1;
+            int take = 10;
+            int skip = (iPage - 1) * 10;
+            var result = _mapper.Map<IEnumerable<Step>, List<StepViewModel>>(_entityService.AllAsQueryable.OrderByDescending(p => p.CreatedDate).Skip(skip).Take(take).ToList());
+            return Ok(result);
+        }
+
         [HttpPost]
         [ProducesResponseType(typeof(StepViewModel), 200)]
         public IActionResult Post([FromBody]StepPostModel model)
